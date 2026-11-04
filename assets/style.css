@@ -1,0 +1,141 @@
+/* ================= RESET DE BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Important : les paddings ne cassent plus la largeur */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #ffffff;
+}
+
+
+/* ================= HEADER (barre du haut) ================= */
+.site-header {
+    position: absolute;   /* Sort le header du flux → il flotte AU-DESSUS de l'image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;          /* S'assure qu'il reste devant l'image de fond */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo à gauche, bouton à droite */
+    align-items: center;            /* Aligne verticalement au centre */
+    padding: 20px 50px;             /* Espace intérieur : 20px haut/bas, 50px gauche/droite */
+}
+
+/* Logo */
+#img {
+    height: 60px;   /* Hauteur fixe */
+    width: auto;    /* Largeur automatique → pas de déformation */
+}
+
+/* Bouton E-SERVICES */
+.btn-nav button {
+    background-color: #1a3a5a; /* Bleu foncé */
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-nav button:hover {
+    background-color: #244a75; /* Bleu un peu plus clair au survol */
+}
+
+
+/* ================= SECTION HERO (bannière) ================= */
+#hero {
+    /* Image de fond */
+    background-image: url("https://e-services.bnb.bj/static/img/home_cover.jpg");
+    background-size: cover;          /* L'image couvre toute la zone sans se déformer */
+    background-position: center;     /* Centre l'image */
+    background-repeat: no-repeat;
+
+    /* Hauteur : toute la hauteur de l'écran */
+    height: 100vh;
+
+    /* Centrage du contenu (texte + bouton) */
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: center;      /* Centre verticalement */
+
+    /* Voile sombre pour rendre le texte blanc lisible */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+}
+
+/* Bloc de contenu à l'intérieur du hero */
+.hero-content {
+    text-align: center;   /* Centre le texte */
+    max-width: 850px;     /* Empêche le texte de s'étaler sur toute la largeur */
+    padding: 0 20px;      /* Marge de sécurité sur mobile */
+}
+
+/* Titre principal */
+.hero-content h1 {
+    font-size: 3rem;              /* Grand titre */
+    font-weight: 700;
+    line-height: 1.2;             /* Espace entre les lignes */
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Ombre pour lisibilité */
+}
+
+/* Paragraphe */
+.hero-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Bouton principal "Faire une demande" */
+.btn-main {
+    background-color: #ffc107; /* Jaune/orange de l'image */
+    color: #ffffff;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-main:hover {
+    background-color: #e0a800;      /* Un peu plus foncé au survol */
+    transform: translateY(-2px);    /* Léger soulèvement */
+}
+
+
+/* ================= RESPONSIVE (mobile) ================= */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    #img {
+        height: 45px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Titre plus petit sur mobile */
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .btn-main {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+    }
+}
