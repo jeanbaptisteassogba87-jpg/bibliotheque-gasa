@@ -1,8 +1,7 @@
-/* ================= RESET DE BASE ================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Important : les paddings ne cassent plus la largeur */
+    box-sizing: border-box; 
 }
 
 body {
@@ -11,31 +10,30 @@ body {
 }
 
 
-/* ================= HEADER (barre du haut) ================= */
 .site-header {
-    position: absolute;   /* Sort le header du flux → il flotte AU-DESSUS de l'image */
+    position: absolute;   
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;          /* S'assure qu'il reste devant l'image de fond */
+    z-index: 10;      
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Logo à gauche, bouton à droite */
-    align-items: center;            /* Aligne verticalement au centre */
-    padding: 20px 50px;             /* Espace intérieur : 20px haut/bas, 50px gauche/droite */
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 20px 50px;         
 }
 
 /* Logo */
 #img {
-    height: 60px;   /* Hauteur fixe */
-    width: auto;    /* Largeur automatique → pas de déformation */
+    height: 60px;  
+    width: auto;   
 }
 
 /* Bouton E-SERVICES */
 .btn-nav button {
-    background-color: #1a3a5a; /* Bleu foncé */
+    background-color: #1a3a5a; 
     color: #ffffff;
     border: none;
     padding: 12px 24px;
@@ -47,45 +45,40 @@ body {
 }
 
 .btn-nav button:hover {
-    background-color: #244a75; /* Bleu un peu plus clair au survol */
+    background-color: #244a75;
 }
 
 
 /* ================= SECTION HERO (bannière) ================= */
 #hero {
-    /* Image de fond */
     background-image: url("https://e-services.bnb.bj/static/img/home_cover.jpg");
-    background-size: cover;          /* L'image couvre toute la zone sans se déformer */
-    background-position: center;     /* Centre l'image */
+    background-size: cover;         
+    background-position: center;     
     background-repeat: no-repeat;
 
-    /* Hauteur : toute la hauteur de l'écran */
     height: 100vh;
 
-    /* Centrage du contenu (texte + bouton) */
     display: flex;
-    justify-content: center;  /* Centre horizontalement */
-    align-items: center;      /* Centre verticalement */
+    justify-content: center; 
+    align-items: center;      
 
-    /* Voile sombre pour rendre le texte blanc lisible */
+
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 }
 
-/* Bloc de contenu à l'intérieur du hero */
 .hero-content {
-    text-align: center;   /* Centre le texte */
-    max-width: 850px;     /* Empêche le texte de s'étaler sur toute la largeur */
-    padding: 0 20px;      /* Marge de sécurité sur mobile */
+    text-align: center;   
+    max-width: 850px;     
+    padding: 0 20px;      
 }
 
-/* Titre principal */
 .hero-content h1 {
-    font-size: 3rem;              /* Grand titre */
+    font-size: 3rem;             
     font-weight: 700;
-    line-height: 1.2;             /* Espace entre les lignes */
+    line-height: 1.2;            
     margin-bottom: 25px;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Ombre pour lisibilité */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); 
 }
 
 /* Paragraphe */
@@ -98,7 +91,7 @@ body {
 
 /* Bouton principal "Faire une demande" */
 .btn-main {
-    background-color: #ffc107; /* Jaune/orange de l'image */
+    background-color: #ffc107; 
     color: #ffffff;
     border: none;
     padding: 15px 35px;
@@ -110,12 +103,11 @@ body {
 }
 
 .btn-main:hover {
-    background-color: #e0a800;      /* Un peu plus foncé au survol */
-    transform: translateY(-2px);    /* Léger soulèvement */
+    background-color: #e0a800;      
+    transform: translateY(-2px);    
 }
 
 
-/* ================= RESPONSIVE (mobile) ================= */
 @media (max-width: 768px) {
 
     .navbar {
@@ -127,7 +119,7 @@ body {
     }
 
     .hero-content h1 {
-        font-size: 2rem; /* Titre plus petit sur mobile */
+        font-size: 2rem; 
     }
 
     .hero-content p {
