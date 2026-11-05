@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -9,78 +9,81 @@ body {
     color: #ffffff;
 }
 
-
 .site-header {
-    position: absolute;   
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;      
+    z-index: 100;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.site-header.scrolled {
+    background-color: #ffffff; /* Blanc pur */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Ombre douce pour le détacher de la page */
+    padding: 10px 0;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;            
-    padding: 20px 50px;         
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
 }
 
-/* Logo */
 #img {
-    height: 60px;  
-    width: auto;   
+    height: 55px;
+    width: auto;
+    border-radius: 8px;
+    mix-blend-mode: multiply; 
 }
 
-/* Bouton E-SERVICES */
-.btn-nav button {
-    background-color: #1a3a5a; 
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
+.btn-admin {
+    background-color: #ffc107;
+    color: #1a3a5a;
+    text-decoration: none;
+    padding: 10px 22px;
     font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
-.btn-nav button:hover {
-    background-color: #244a75;
+.btn-admin:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
 }
-
 
 #hero {
     background-image: url("https://e-services.bnb.bj/static/img/home_cover.jpg");
-    background-size: cover;         
-    background-position: center;     
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-
     height: 100vh;
-
     display: flex;
-    justify-content: center; 
-    align-items: center;      
-
-
-    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.55);
     background-blend-mode: overlay;
 }
 
 .hero-content {
-    text-align: center;   
-    max-width: 850px;     
-    padding: 0 20px;      
+    text-align: center;
+    max-width: 850px;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
-    font-size: 3rem;             
+    font-size: 3rem;
     font-weight: 700;
-    line-height: 1.2;            
+    line-height: 1.2;
     margin-bottom: 25px;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); 
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* Paragraphe */
 .hero-content p {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -88,47 +91,136 @@ body {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Bouton principal "Faire une demande" */
 .btn-main {
-    background-color: #ffc107; 
-    color: #ffffff;
+    background-color: #ffc107;
+    color: #1a3a5a;
     border: none;
     padding: 15px 35px;
     font-size: 1rem;
-    font-weight: 600;
-    border-radius: 5px;
+    font-weight: 700;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-main:hover {
-    background-color: #e0a800;      
-    transform: translateY(-2px);    
+    background-color: #e0a800;
+    transform: translateY(-2px);
 }
 
+.comment-emprunter {
+    padding: 100px 50px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.subtitle-top {
+    display: inline-block;
+    color: #ffc107;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #1a3a5a;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #6b7c93;
+    font-size: 1.1rem;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    flex: 1;
+    text-align: left;
+    padding: 35px 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    border-top: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-top: 3px solid #1a3a5a;
+}
+
+.card-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #eaeaea;
+    line-height: 1;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-number {
+    color: #ffc107;
+}
+
+.card h3 {
+    color: #1a3a5a;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #6b7c93;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .cards-container {
+        flex-direction: column;
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    .comment-emprunter {
+        padding: 60px 20px;
+    }
+    .navbar {
+        padding: 0 20px;
+    }
+}
 
 @media (max-width: 768px) {
-
-    .navbar {
-        padding: 15px 20px;
-    }
-
     #img {
         height: 45px;
     }
-
     .hero-content h1 {
-        font-size: 2rem; 
+        font-size: 2rem;
     }
-
     .hero-content p {
         font-size: 0.95rem;
     }
-
     .btn-main {
         padding: 12px 28px;
         font-size: 0.9rem;
     }
+    .btn-admin {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
 }
-
-

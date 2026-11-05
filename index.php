@@ -10,24 +10,17 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header">
+    <header class="site-header" id="navbar">
         <nav class="navbar">
-            <!-- Logo -->
             <div class="logos">
-                <img src="assets/images/logo-gasa.jpeg" 
-                     id="img" 
-                     alt="Logo de l'UATM GASA Formation">
+                <img src="assets/images/logo-gasa.jpeg" id="img" alt="Logo UATM GASA">
             </div>
-
-            <!-- Bouton E-Services -->
-            <div class="btn-nav">
-                <button type="button">E-SERVICES</button>
+            <div class="nav-actions">
+                <a href="admin/login.php" class="btn-admin">Espace Admin</a>
             </div>
         </nav>
     </header>
 
-    <!-- ================= CONTENU PRINCIPAL ================= -->
     <main>
         <section id="hero">
             <div class="hero-content">
@@ -42,8 +35,46 @@
             </div>
         </section>
 
+        <section class="comment-emprunter">
+            <div class="section-header">
+                <span class="subtitle-top">Guide d'utilisation</span>
+                <h2>Comment emprunter ?</h2>
+                <p>Trois étapes simples pour profiter de nos ressources.</p>
+            </div>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Cherchez</h3>
+                    <p>Parcourez le catalogue ou utilisez la barre de recherche pour trouver le livre qui vous intéresse.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Vérifiez</h3>
+                    <p>Consultez la fiche du livre pour voir s'il est disponible en rayon ou déjà emprunté.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Empruntez</h3>
+                    <p>Rendez-vous à l'accueil avec votre carte d'étudiant pour valider l'emprunt.</p>
+                </div>
+            </div>
+        </section>
+
         
     </main>
 
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
