@@ -1,0 +1,130 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== FOND BLEUTÉ (Adouci) ===== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    
+    /* L'image + un calque bleu léger (0.3 et 0.5) */
+    background-image: 
+        linear-gradient(rgba(26, 58, 90, 0.3), rgba(26, 58, 90, 0.5)), 
+        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ===== CARTE DE CONNEXION ===== */
+.login-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    border-top: 5px solid #1a3a5a; /* Le liseré bleu de la charte graphique */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    color: #1a3a5a; /* Titre en bleu foncé */
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.login-box .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+/* ===== CHAMPS DU FORMULAIRE ===== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1a3a5a;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: white;
+    border-color: #ffc107; /* Bordure jaune au clic */
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+/* ===== BOUTON ===== */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffc107; /* Le jaune de ton bouton Hero */
+    color: #1a3a5a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* ===== MESSAGE D'ERREUR ===== */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===== LIEN RETOUR ===== */
+.back-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-link a {
+    color: #1a3a5a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #ffc107;
+}

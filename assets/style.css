@@ -49,7 +49,6 @@ body {
 }
 
 
-/* ================= SECTION HERO (bannière) ================= */
 #hero {
     background-image: url("https://e-services.bnb.bj/static/img/home_cover.jpg");
     background-size: cover;         
@@ -131,3 +130,5 @@ body {
         font-size: 0.9rem;
     }
 }
+
+
