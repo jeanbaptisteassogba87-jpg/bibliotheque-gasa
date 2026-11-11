@@ -190,6 +190,164 @@ body {
     line-height: 1.6;
 }
 
+/* ================= SECTION CATALOGUE ================= */
+.catalogue-section {
+    padding: 100px 50px;
+    background-color: #ffffff;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.catalogue-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalogue-header h2 {
+    font-size: 2.5rem;
+    color: #1a3a5a;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.catalogue-header p {
+    color: #6b7c93;
+    font-size: 1.1rem;
+}
+
+/* --- Filtres --- */
+.filtres {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Pour que ça passe à la ligne sur mobile */
+}
+
+.filtre-btn {
+    text-decoration: none; /* Car ce sont des liens <a> maintenant */
+    background: #f4f6f9;
+    color: #6b7c93;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtre-btn:hover {
+    background: #e2e6ea;
+    color: #1a3a5a;
+}
+
+.filtre-btn.active {
+    background-color: #1a3a5a;
+    color: #ffffff;
+}
+
+/* --- Grille de livres --- */
+.livres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.livre-card {
+    background: transparent;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.livre-card:hover {
+    transform: translateY(-8px);
+}
+
+/* La couverture du livre (format 2/3) */
+.livre-couverture {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3; 
+    background-color: #1a3a5a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+}
+
+.livre-couverture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.livre-card:hover .livre-couverture img {
+    transform: scale(1.05); 
+}
+
+/* Badge */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.badge.disponible {
+    background-color: #ffffff;
+    color: #2e7d32;
+}
+
+.badge.emprunte {
+    background-color: #1a3a5a;
+    color: #ffffff;
+}
+
+/* Les infos sous la couverture */
+.livre-infos {
+    text-align: left;
+}
+
+.livre-categorie {
+    font-size: 0.75rem;
+    color: #ffc107;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.livre-infos h3 {
+    font-size: 1.1rem;
+    color: #1a3a5a;
+    margin: 5px 0;
+    line-height: 1.3;
+}
+
+.livre-infos p {
+    font-size: 0.85rem;
+    color: #6b7c93;
+}
+
+.no-books {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6b7c93;
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+    .catalogue-section {
+        padding: 60px 20px;
+    }
+}
+
 @media (max-width: 900px) {
     .cards-container {
         flex-direction: column;

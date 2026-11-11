@@ -1,3 +1,20 @@
+<?php
+require_once 'config.php';
+
+$stmt_cat = $pdo->query("SELECT DISTINCT categorie FROM livres ORDER BY categorie");
+$categories = $stmt_cat->fetchAll(PDO::FETCH_COLUMN);
+
+$categorie_filtre = isset($_GET['categorie']) ? $_GET['categorie'] : 'Tous';
+
+if ($categorie_filtre === 'Tous') {
+    $stmt = $pdo->query("SELECT * FROM livres ORDER BY titre");
+} else {
+    $stmt = $pdo->prepare("SELECT * FROM livres WHERE categorie = ? ORDER BY titre");
+    $stmt->execute([$categorie_filtre]);
+}
+$livres = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -63,7 +80,51 @@
             </div>
         </section>
 
-        
+                <!-- ================= SECTION CATALOGUE ================= -->
+        <section class="catalogue-section">
+            <div class="catalogue-header">
+                <h2>Le catalogue</h2>
+                <p>Découvrez notre collection d'ouvrages disponibles.</p>
+            </div>
+
+            <!-- Les filtres (Liens HTML pour recharger la page avec la catégorie) -->
+            <div class="filtres">
+                <a href="index.php" class="filtre-btn <?= ($categorie_filtre === 'Tous') ? 'active' : '' ?>">Tous</a>
+                
+                <?php foreach ($categories as $cat): ?>
+                    <a href="index.php?categorie=<?= urlencode($cat) ?>" 
+                       class="filtre-btn <?= ($categorie_filtre === $cat) ? 'active' : '' ?>">
+                        <?= htmlspecialchars($cat) ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- La grille de livres -->
+            <div class="livres-grid">
+                <?php if (count($livres) > 0): ?>
+                    <?php foreach ($livres as $livre): ?>
+                        <div class="livre-card">
+                            <div class="livre-couverture">
+                                <!-- On affiche l'image si elle existe, sinon un placeholder -->
+                                <img src="assets/images/<?= htmlspecialchars($livre['couverture']) ?>" 
+                                     alt="<?= htmlspecialchars($livre['titre']) ?>"
+                                     onerror="this.src='https://via.placeholder.com/200x300/1a3a5a/ffffff?text=Livre'">
+                                
+                                <!-- On met un badge "Disponible" par défaut pour l'instant -->
+                                <span class="badge disponible">Disponible</span>
+                            </div>
+                            <div class="livre-infos">
+                                <span class="livre-categorie"><?= htmlspecialchars($livre['categorie']) ?></span>
+                                <h3><?= htmlspecialchars($livre['titre']) ?></h3>
+                                <p><?= htmlspecialchars($livre['auteur']) ?>, <?= htmlspecialchars($livre['annee']) ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="no-books">Aucun livre trouvé dans cette catégorie.</p>
+                <?php endif; ?>
+            </div>
+        </section>
     </main>
 
     <script>
