@@ -25,7 +25,7 @@ $livres = $stmt->fetchAll();
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body >
 
     <header class="site-header" id="navbar">
         <nav class="navbar">

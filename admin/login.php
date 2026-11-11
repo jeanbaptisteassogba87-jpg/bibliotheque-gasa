@@ -1,3 +1,29 @@
+<?php
+session_start();
+require_once '../config.php';
+
+$erreur = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $mot_de_passe = $_POST['password'] ?? '';
+
+    $stmt = $pdo->prepare("SELECT * FROM admins WHERE email = ?");
+    $stmt->execute([$email]);
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($admin && password_verify($mot_de_passe, $admin['mot_de_passe'])) {
+        session_regenerate_id(true);
+        $_SESSION['admin_id']  = $admin['id'];
+        $_SESSION['admin_nom'] = $admin['nom'];
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        $erreur = "Email ou mot de passe incorrect.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +32,7 @@
     <title>Connexion Admin - Bibliothèque GASA</title>
     <link rel="stylesheet" href="../assets/admin.css">
 </head>
-<body>
+<body class="login-body">
 
     <div class="login-box">
         <h2>Espace Administrateur</h2>
@@ -20,7 +46,7 @@
             
             <div class="form-group">
                 <label for="mot_de_passe">Mot de passe</label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="••••••••" required>
+                <input type="password" id="mot_de_passe" name="password" placeholder="••••••••" required>
             </div>
 
             <button type="submit" class="btn-login">Se connecter</button>
