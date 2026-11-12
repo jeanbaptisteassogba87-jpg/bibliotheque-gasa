@@ -1,0 +1,125 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Page : photo + voile bleu, carte au centre */
+.login-page {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 30px 20px;
+    background-image:
+        linear-gradient(rgba(15, 39, 64, 0.8), rgba(26, 58, 90, 0.85)),
+        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Carte */
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    padding: 48px 44px;
+    border-radius: 18px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+.login-logo {
+    height: 64px;
+    width: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.login-card h2 { font-size: 2rem; font-weight: 800; color: #1a3a5a; margin-bottom: 8px; }
+.login-intro { color: #64748b; font-size: 0.95rem; margin-bottom: 32px; }
+
+/* Message d'erreur */
+.login-error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Champs */
+.field { margin-bottom: 22px; text-align: left; }
+.field label { display: block; margin-bottom: 8px; font-size: 0.92rem; font-weight: 600; color: #1a3a5a; }
+
+.field input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.field input:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.25);
+}
+
+/* Œil du mot de passe */
+.input-wrap { position: relative; }
+.input-wrap input { padding-right: 52px; }
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    color: #64748b;
+    cursor: pointer;
+}
+.toggle-password:hover { background: #eef2f6; color: #1a3a5a; }
+
+/* Bouton */
+.login-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px;
+    background: #ffc107;
+    color: #0f2740;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.login-btn:hover { background: #e0a800; }
+
+/* Lien retour et pied de page */
+.login-back {
+    display: inline-block;
+    margin-top: 26px;
+    color: #64748b;
+    font-size: 0.92rem;
+    text-decoration: none;
+}
+.login-back:hover { color: #1a3a5a; }
+
+.login-footer {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+}
+
+/* Petits écrans */
+@media (max-width: 520px) {
+    .login-card { padding: 34px 24px; }
+    .login-card h2 { font-size: 1.7rem; }
+}
